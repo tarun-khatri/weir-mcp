@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.weirapp/weir",
+  "title": "Weir: Reddit and X (Twitter) data",
+  "description": "Search and read public Reddit and X posts, comments, threads, profiles and Articles; run monitors.",
+  "version": "1.0.0",
+  "websiteUrl": "https://weirapp.io",
+  "icons": [
+    { "src": "https://weirapp.io/icon/512", "mimeType": "image/png", "sizes": ["512x512"] }
+  ],
+  "remotes": [
+    { "type": "streamable-http", "url": "https://api.weirapp.io/mcp" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "weir": {
+      "serverUrl": "https://api.weirapp.io/mcp"
+    }
+  }
+}

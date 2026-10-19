@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "weir": {
+      "type": "http",
+      "url": "https://api.weirapp.io/mcp"
+    }
+  }
+}

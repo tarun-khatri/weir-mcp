@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "weir": {
+      "type": "http",
+      "url": "https://api.weirapp.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${WEIR_API_KEY}"
+      }
+    }
+  }
+}
