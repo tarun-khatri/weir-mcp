@@ -1,0 +1,137 @@
+identity:
+  name: "search_x"
+  author: "tarun-khatri"
+  label:
+    en_US: "Search X posts"
+    zh_Hans: "搜索推文"
+    ja_JP: "X のポストを検索"
+description:
+  human:
+    en_US: "Search public X (Twitter) posts by keyword, with filters for accounts, language, likes and dates. X search operators work in the query."
+    zh_Hans: "按关键词搜索公开的推特（X）推文，可按账号、语言、点赞数和日期筛选。查询里可以直接写 X 的搜索运算符。"
+    ja_JP: "キーワードで公開の X（旧 Twitter）のポストを検索します。アカウント、言語、いいね数、日付で絞り込めます。X の検索コマンドもそのまま使えます。"
+  llm: "Search public X (Twitter) posts. Use for questions about what people post on X about a topic, brand or person. The query accepts X search operators such as from:, min_faves:, lang: and filter:media."
+parameters:
+  - name: "query"
+    type: "string"
+    form: "llm"
+    required: true
+    label:
+      en_US: "Query"
+      zh_Hans: "搜索词"
+      ja_JP: "検索キーワード"
+    human_description:
+      en_US: "Words to search for. X search operators work here."
+      zh_Hans: "要搜索的词，可以使用 X 的搜索运算符。"
+      ja_JP: "検索する言葉。X の検索コマンドも使えます。"
+    llm_description: "The search query, with any X search operators."
+  - name: "from_users"
+    type: "string"
+    form: "llm"
+    required: false
+    label:
+      en_US: "From accounts"
+      zh_Hans: "发布账号"
+      ja_JP: "投稿したアカウント"
+    human_description:
+      en_US: "Only posts by these usernames, separated by commas (up to 10)."
+      zh_Hans: "只看这些账号的推文，用逗号分隔（最多 10 个）。"
+      ja_JP: "このユーザー名のポストだけ。カンマ区切りで最大 10 件。"
+    llm_description: "Optional comma-separated X usernames whose posts to return."
+  - name: "language"
+    type: "string"
+    form: "llm"
+    required: false
+    label:
+      en_US: "Language"
+      zh_Hans: "语言"
+      ja_JP: "言語"
+    human_description:
+      en_US: "Language X detected, such as en, ja or zh."
+      zh_Hans: "X 识别出的语言，如 en、ja、zh。"
+      ja_JP: "X が判定した言語。en、ja、zh など。"
+    llm_description: "Optional language code such as en, ja or zh."
+  - name: "min_likes"
+    type: "number"
+    form: "llm"
+    required: false
+    min: 0
+    label:
+      en_US: "Minimum likes"
+      zh_Hans: "最少点赞数"
+      ja_JP: "最低いいね数"
+    human_description:
+      en_US: "Only posts with at least this many likes."
+      zh_Hans: "只看点赞数不少于此值的推文。"
+      ja_JP: "いいねがこの数以上のポストだけ。"
+    llm_description: "Optional minimum like count."
+  - name: "since"
+    type: "string"
+    form: "llm"
+    required: false
+    label:
+      en_US: "Since"
+      zh_Hans: "开始时间"
+      ja_JP: "開始日時"
+    human_description:
+      en_US: "Posted at or after this date or time, such as 2026-10-01 (UTC) or 2026-10-01T09:00:00+09:00."
+      zh_Hans: "在此日期或时间之后发布，如 2026-10-01（UTC）或 2026-10-01T09:00:00+08:00。"
+      ja_JP: "この日付・日時以降の投稿。例：2026-10-01（UTC）、2026-10-01T09:00:00+09:00。"
+    llm_description: "Optional start, as a date (YYYY-MM-DD, read as UTC) or an ISO 8601 date-time with an offset."
+  - name: "until"
+    type: "string"
+    form: "llm"
+    required: false
+    label:
+      en_US: "Until"
+      zh_Hans: "结束时间"
+      ja_JP: "終了日時"
+    human_description:
+      en_US: "Posted before this date or time."
+      zh_Hans: "在此日期或时间之前发布。"
+      ja_JP: "この日付・日時より前の投稿。"
+    llm_description: "Optional end (exclusive), as a date or an ISO 8601 date-time."
+  - name: "sort"
+    type: "select"
+    form: "form"
+    required: false
+    default: "latest"
+    options:
+      - value: "latest"
+        label:
+          en_US: "Latest"
+          zh_Hans: "最新"
+          ja_JP: "新しい順"
+      - value: "top"
+        label:
+          en_US: "Top"
+          zh_Hans: "热门"
+          ja_JP: "話題"
+    label:
+      en_US: "Sort"
+      zh_Hans: "排序"
+      ja_JP: "並び順"
+    human_description:
+      en_US: "Newest first, or X's own engagement ranking."
+      zh_Hans: "按时间从新到旧，或按 X 的热度排序。"
+      ja_JP: "新しい順か、X 独自の話題順。"
+    llm_description: "latest or top."
+  - name: "limit"
+    type: "number"
+    form: "form"
+    required: false
+    default: 20
+    min: 1
+    max: 100
+    label:
+      en_US: "Max posts"
+      zh_Hans: "最多推文数"
+      ja_JP: "最大件数"
+    human_description:
+      en_US: "Most posts to return (1 to 100). Each post costs 1 credit."
+      zh_Hans: "最多返回多少条（1 到 100）。每条推文 1 积分。"
+      ja_JP: "返す最大件数（1〜100）。1 件 1 クレジットです。"
+    llm_description: "Maximum number of posts, 1 to 100."
+extra:
+  python:
+    source: "tools/search_x.py"

@@ -1,0 +1,42 @@
+identity:
+  author: "tarun-khatri"
+  name: "weir"
+  label:
+    en_US: "Weir"
+    zh_Hans: "Weir"
+    ja_JP: "Weir"
+  description:
+    en_US: "Public X (Twitter) and Reddit data: search posts, read replies, threads, timelines and Reddit comments. No X or Reddit account or API key needed; paid per result, 5,000 free credits a month."
+    zh_Hans: "公开的推特（X）和 Reddit 数据：搜索推文，读取回复、推文串、时间线和 Reddit 评论。无需 X 或 Reddit 账号和 API Key；按结果计费，每月 5,000 免费积分。"
+    ja_JP: "公開されている X（旧 Twitter）と Reddit のデータ。ポストの検索、返信・スレッド・タイムライン、Reddit のコメントを取得します。X や Reddit のアカウントや API キーは不要で、結果ごとの課金、毎月 5,000 クレジットが無料です。"
+  icon: "icon.svg"
+  tags:
+    - "social"
+    - "search"
+credentials_for_provider:
+  weir_api_key:
+    type: "secret-input"
+    required: true
+    label:
+      en_US: "Weir API key"
+      zh_Hans: "Weir API Key"
+      ja_JP: "Weir API キー"
+    placeholder:
+      en_US: "Paste your Weir API key"
+      zh_Hans: "粘贴你的 Weir API Key"
+      ja_JP: "Weir の API キーを貼り付け"
+    help:
+      en_US: "Create a key at weirapp.io (Dashboard, Keys). Every account gets 5,000 free credits a month."
+      zh_Hans: "在 weirapp.io 控制台的 Keys 页面创建 Key。每个账号每月有 5,000 免费积分。"
+      ja_JP: "weirapp.io のダッシュボードの Keys でキーを作成します。どのアカウントも毎月 5,000 クレジットが無料です。"
+    url: "https://weirapp.io/dashboard/keys"
+tools:
+  - "tools/search_x.yaml"
+  - "tools/get_x_replies.yaml"
+  - "tools/get_x_thread.yaml"
+  - "tools/get_x_user_posts.yaml"
+  - "tools/search_reddit.yaml"
+  - "tools/get_reddit_comments.yaml"
+extra:
+  python:
+    source: "provider/weir.py"

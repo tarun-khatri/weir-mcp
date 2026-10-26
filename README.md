@@ -17,7 +17,17 @@ runs can send an API key as a bearer token instead. No Reddit or X account or AP
 - Pricing: 5,000 free credits every month, then prepaid credits; failed calls are free.
 
 This repository holds a Claude Code plugin, a Gemini CLI extension, an agent skill and ready-made
-client configurations. The server itself is hosted; there is nothing to run.
+client configurations, plus a Dify plugin (`dify/weir`) and Docker MCP Catalog entries (`docker/`),
+both awaiting their marketplaces' review. The server itself is hosted; there is nothing to run.
+
+**Writing code against the API?** A second server searches Weir's documentation, with no sign-in:
+
+```
+https://docs.weirapp.io/api/mcp
+```
+
+Its tools are `search_docs`, `read_doc` and `list_docs`. In Claude Code:
+`claude mcp add --transport http weir-docs https://docs.weirapp.io/api/mcp`.
 
 ## Install in one command
 

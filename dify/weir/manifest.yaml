@@ -1,0 +1,37 @@
+version: 0.0.1
+type: plugin
+author: tarun-khatri
+name: weir
+label:
+  en_US: "Weir: X and Reddit data"
+  zh_Hans: "Weir：推特（X）和 Reddit 数据"
+  ja_JP: "Weir：X と Reddit のデータ"
+description:
+  en_US: "Read public X (Twitter) and Reddit data with no X or Reddit account or API key: search posts, read replies, threads and timelines, search Reddit and read comment threads. Paid per result, with 5,000 free credits a month."
+  zh_Hans: "无需 X 或 Reddit 账号和 API Key，读取公开的推特（X）和 Reddit 数据：搜索推文，读取回复、推文串和时间线，搜索 Reddit 并读取评论。按结果计费，每月 5,000 免费积分。"
+  ja_JP: "X や Reddit のアカウントや API キーなしで、公開されている X（旧 Twitter）と Reddit のデータを読みます。ポストの検索、返信・スレッド・タイムラインの取得、Reddit の検索とコメントの取得ができます。結果ごとの課金で、毎月 5,000 クレジットが無料です。"
+created_at: "2026-10-27T00:00:00Z"
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: false
+plugins:
+  tools:
+    - provider/weir.yaml
+privacy: PRIVACY.md
+tags:
+  - social
+  - search
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main

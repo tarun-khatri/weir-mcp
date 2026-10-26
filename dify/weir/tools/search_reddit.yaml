@@ -1,0 +1,139 @@
+identity:
+  name: "search_reddit"
+  author: "tarun-khatri"
+  label:
+    en_US: "Search Reddit"
+    zh_Hans: "搜索 Reddit"
+    ja_JP: "Reddit を検索"
+description:
+  human:
+    en_US: "Search public Reddit posts, across Reddit or in one community."
+    zh_Hans: "搜索 Reddit 的公开帖子，可以全站搜，也可以只搜一个社区。"
+    ja_JP: "Reddit の公開投稿を、全体か 1 つのコミュニティで検索します。"
+  llm: "Search public Reddit posts. Use for what people discuss on Reddit about a topic, product or question."
+parameters:
+  - name: "query"
+    type: "string"
+    form: "llm"
+    required: true
+    label:
+      en_US: "Query"
+      zh_Hans: "搜索词"
+      ja_JP: "検索キーワード"
+    human_description:
+      en_US: "Words to search for."
+      zh_Hans: "要搜索的词。"
+      ja_JP: "検索する言葉。"
+    llm_description: "The search query."
+  - name: "subreddit"
+    type: "string"
+    form: "llm"
+    required: false
+    label:
+      en_US: "Community"
+      zh_Hans: "社区"
+      ja_JP: "コミュニティ"
+    human_description:
+      en_US: "Only this community, without r/ (optional)."
+      zh_Hans: "只搜这个社区，不带 r/（可选）。"
+      ja_JP: "このコミュニティだけ。r/ は不要（任意）。"
+    llm_description: "Optional subreddit name without r/."
+  - name: "sort"
+    type: "select"
+    form: "form"
+    required: false
+    default: "relevance"
+    options:
+      - value: "relevance"
+        label:
+          en_US: "Relevance"
+          zh_Hans: "相关度"
+          ja_JP: "関連度"
+      - value: "new"
+        label:
+          en_US: "New"
+          zh_Hans: "最新"
+          ja_JP: "新着"
+      - value: "top"
+        label:
+          en_US: "Top"
+          zh_Hans: "最高分"
+          ja_JP: "高評価"
+      - value: "hot"
+        label:
+          en_US: "Hot"
+          zh_Hans: "热门"
+          ja_JP: "人気"
+      - value: "comments"
+        label:
+          en_US: "Most comments"
+          zh_Hans: "评论最多"
+          ja_JP: "コメント数"
+    label:
+      en_US: "Sort"
+      zh_Hans: "排序"
+      ja_JP: "並び順"
+    human_description:
+      en_US: "How to order the posts."
+      zh_Hans: "帖子的排序方式。"
+      ja_JP: "投稿の並び順。"
+    llm_description: "relevance, new, top, hot or comments."
+  - name: "time"
+    type: "select"
+    form: "form"
+    required: false
+    default: "all"
+    options:
+      - value: "all"
+        label:
+          en_US: "All time"
+          zh_Hans: "全部"
+          ja_JP: "すべて"
+      - value: "year"
+        label:
+          en_US: "Past year"
+          zh_Hans: "一年内"
+          ja_JP: "1 年以内"
+      - value: "month"
+        label:
+          en_US: "Past month"
+          zh_Hans: "一个月内"
+          ja_JP: "1 か月以内"
+      - value: "week"
+        label:
+          en_US: "Past week"
+          zh_Hans: "一周内"
+          ja_JP: "1 週間以内"
+      - value: "day"
+        label:
+          en_US: "Past day"
+          zh_Hans: "一天内"
+          ja_JP: "1 日以内"
+    label:
+      en_US: "Time"
+      zh_Hans: "时间范围"
+      ja_JP: "期間"
+    human_description:
+      en_US: "Only posts from this window."
+      zh_Hans: "只看这个时间范围内的帖子。"
+      ja_JP: "この期間の投稿だけ。"
+    llm_description: "all, year, month, week or day."
+  - name: "limit"
+    type: "number"
+    form: "form"
+    required: false
+    default: 25
+    min: 1
+    max: 100
+    label:
+      en_US: "Max posts"
+      zh_Hans: "最多帖子数"
+      ja_JP: "最大件数"
+    human_description:
+      en_US: "Most posts to return (1 to 100)."
+      zh_Hans: "最多返回多少条（1 到 100）。"
+      ja_JP: "返す最大件数（1〜100）。"
+    llm_description: "Maximum number of posts, 1 to 100."
+extra:
+  python:
+    source: "tools/search_reddit.py"

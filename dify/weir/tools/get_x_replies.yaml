@@ -1,0 +1,76 @@
+identity:
+  name: "get_x_replies"
+  author: "tarun-khatri"
+  label:
+    en_US: "Get replies to an X post"
+    zh_Hans: "获取推文回复"
+    ja_JP: "ポストへの返信を取得"
+description:
+  human:
+    en_US: "The replies under one X post, from its link or id."
+    zh_Hans: "读取一条推文下的回复，填推文链接或 ID。"
+    ja_JP: "1 件のポストに付いた返信を取得します。リンクか ID を入れます。"
+  llm: "Get the replies to one X (Twitter) post. Use to read what people answered to a post."
+parameters:
+  - name: "post"
+    type: "string"
+    form: "llm"
+    required: true
+    label:
+      en_US: "Post"
+      zh_Hans: "推文"
+      ja_JP: "ポスト"
+    human_description:
+      en_US: "Post link (https://x.com/.../status/...) or numeric id."
+      zh_Hans: "推文链接（https://x.com/.../status/...）或数字 ID。"
+      ja_JP: "ポストのリンク（https://x.com/.../status/...）か数字の ID。"
+    llm_description: "The X post URL or its numeric id."
+  - name: "sort"
+    type: "select"
+    form: "form"
+    required: false
+    default: "latest"
+    options:
+      - value: "latest"
+        label:
+          en_US: "Latest"
+          zh_Hans: "最新"
+          ja_JP: "新しい順"
+      - value: "relevance"
+        label:
+          en_US: "Relevance"
+          zh_Hans: "相关度"
+          ja_JP: "関連度"
+      - value: "likes"
+        label:
+          en_US: "Likes"
+          zh_Hans: "点赞数"
+          ja_JP: "いいね数"
+    label:
+      en_US: "Sort"
+      zh_Hans: "排序"
+      ja_JP: "並び順"
+    human_description:
+      en_US: "Order of the replies."
+      zh_Hans: "回复的排序方式。"
+      ja_JP: "返信の並び順。"
+    llm_description: "latest, relevance or likes."
+  - name: "limit"
+    type: "number"
+    form: "form"
+    required: false
+    default: 20
+    min: 1
+    max: 100
+    label:
+      en_US: "Max replies"
+      zh_Hans: "最多回复数"
+      ja_JP: "最大件数"
+    human_description:
+      en_US: "Most replies to return (1 to 100)."
+      zh_Hans: "最多返回多少条回复（1 到 100）。"
+      ja_JP: "返す返信の最大件数（1〜100）。"
+    llm_description: "Maximum number of replies, 1 to 100."
+extra:
+  python:
+    source: "tools/get_x_replies.py"

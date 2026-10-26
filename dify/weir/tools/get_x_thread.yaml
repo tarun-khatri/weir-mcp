@@ -1,0 +1,30 @@
+identity:
+  name: "get_x_thread"
+  author: "tarun-khatri"
+  label:
+    en_US: "Get an X thread"
+    zh_Hans: "获取推文串"
+    ja_JP: "スレッドを取得"
+description:
+  human:
+    en_US: "A whole thread: the author's chain of posts that a post belongs to."
+    zh_Hans: "读取完整的推文串：作者连续发布的一组推文。"
+    ja_JP: "投稿者がつなげたポストの連なり（スレッド）全体を取得します。"
+  llm: "Get the full thread an X (Twitter) post belongs to: the author's own chain of posts, in order."
+parameters:
+  - name: "post"
+    type: "string"
+    form: "llm"
+    required: true
+    label:
+      en_US: "Post"
+      zh_Hans: "推文"
+      ja_JP: "ポスト"
+    human_description:
+      en_US: "Link or id of any post in the thread."
+      zh_Hans: "推文串中任意一条推文的链接或 ID。"
+      ja_JP: "スレッド内のどれか 1 件のリンクか ID。"
+    llm_description: "The URL or numeric id of any post in the thread."
+extra:
+  python:
+    source: "tools/get_x_thread.py"

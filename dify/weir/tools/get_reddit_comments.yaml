@@ -1,0 +1,102 @@
+identity:
+  name: "get_reddit_comments"
+  author: "tarun-khatri"
+  label:
+    en_US: "Get Reddit comments"
+    zh_Hans: "获取 Reddit 评论"
+    ja_JP: "Reddit のコメントを取得"
+description:
+  human:
+    en_US: "The comment thread of one Reddit post, from its link or id."
+    zh_Hans: "读取一条 Reddit 帖子下的评论，填帖子链接或 ID。"
+    ja_JP: "1 件の Reddit 投稿のコメントを取得します。リンクか ID を入れます。"
+  llm: "Get the comments on one Reddit post, nested by reply level. Use to read a discussion in full."
+parameters:
+  - name: "post"
+    type: "string"
+    form: "llm"
+    required: true
+    label:
+      en_US: "Post"
+      zh_Hans: "帖子"
+      ja_JP: "投稿"
+    human_description:
+      en_US: "Post link (https://www.reddit.com/r/.../comments/...) or id."
+      zh_Hans: "帖子链接（https://www.reddit.com/r/.../comments/...）或 ID。"
+      ja_JP: "投稿のリンク（https://www.reddit.com/r/.../comments/...）か ID。"
+    llm_description: "The Reddit post URL or its id."
+  - name: "sort"
+    type: "select"
+    form: "form"
+    required: false
+    default: "confidence"
+    options:
+      - value: "confidence"
+        label:
+          en_US: "Best"
+          zh_Hans: "最佳"
+          ja_JP: "ベスト"
+      - value: "top"
+        label:
+          en_US: "Top"
+          zh_Hans: "最高分"
+          ja_JP: "高評価"
+      - value: "new"
+        label:
+          en_US: "New"
+          zh_Hans: "最新"
+          ja_JP: "新着"
+      - value: "old"
+        label:
+          en_US: "Old"
+          zh_Hans: "最早"
+          ja_JP: "古い順"
+      - value: "controversial"
+        label:
+          en_US: "Controversial"
+          zh_Hans: "有争议"
+          ja_JP: "賛否両論"
+    label:
+      en_US: "Sort"
+      zh_Hans: "排序"
+      ja_JP: "並び順"
+    human_description:
+      en_US: "Order of the comments."
+      zh_Hans: "评论的排序方式。"
+      ja_JP: "コメントの並び順。"
+    llm_description: "confidence (best), top, new, old or controversial."
+  - name: "limit"
+    type: "number"
+    form: "form"
+    required: false
+    default: 50
+    min: 1
+    max: 500
+    label:
+      en_US: "Max comments"
+      zh_Hans: "最多评论数"
+      ja_JP: "最大件数"
+    human_description:
+      en_US: "Most comments to return (1 to 500)."
+      zh_Hans: "最多返回多少条评论（1 到 500）。"
+      ja_JP: "返すコメントの最大件数（1〜500）。"
+    llm_description: "Maximum number of comments, 1 to 500."
+  - name: "depth"
+    type: "number"
+    form: "form"
+    required: false
+    default: 3
+    min: 1
+    max: 10
+    label:
+      en_US: "Reply levels"
+      zh_Hans: "回复层级"
+      ja_JP: "返信の階層"
+    human_description:
+      en_US: "How many reply levels to include (1 is top-level only)."
+      zh_Hans: "包含几层回复（1 表示只看顶层评论）。"
+      ja_JP: "含める返信の階層数（1 は最上位のコメントだけ）。"
+    llm_description: "Reply levels to include, 1 to 10."
+extra:
+  python:
+    source: "tools/get_reddit_comments.py"

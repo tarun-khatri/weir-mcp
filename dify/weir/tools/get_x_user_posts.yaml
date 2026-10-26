@@ -1,0 +1,46 @@
+identity:
+  name: "get_x_user_posts"
+  author: "tarun-khatri"
+  label:
+    en_US: "Get an account's posts"
+    zh_Hans: "获取账号的推文"
+    ja_JP: "アカウントのポストを取得"
+description:
+  human:
+    en_US: "An X account's latest posts, from its username or profile link."
+    zh_Hans: "读取某个 X 账号最近发布的推文，填用户名或主页链接。"
+    ja_JP: "X アカウントの最新のポストを取得します。ユーザー名かプロフィールのリンクを入れます。"
+  llm: "Get the latest posts from one X (Twitter) account."
+parameters:
+  - name: "user"
+    type: "string"
+    form: "llm"
+    required: true
+    label:
+      en_US: "Account"
+      zh_Hans: "账号"
+      ja_JP: "アカウント"
+    human_description:
+      en_US: "Username (with or without @), profile link or numeric id."
+      zh_Hans: "用户名（可带 @）、主页链接或数字 ID。"
+      ja_JP: "ユーザー名（@ はあってもなくても可）、プロフィールのリンクか数字の ID。"
+    llm_description: "The X username, profile URL or numeric account id."
+  - name: "limit"
+    type: "number"
+    form: "form"
+    required: false
+    default: 20
+    min: 1
+    max: 20
+    label:
+      en_US: "Max posts"
+      zh_Hans: "最多推文数"
+      ja_JP: "最大件数"
+    human_description:
+      en_US: "Most posts to return (1 to 20)."
+      zh_Hans: "最多返回多少条（1 到 20）。"
+      ja_JP: "返す最大件数（1〜20）。"
+    llm_description: "Maximum number of posts, 1 to 20."
+extra:
+  python:
+    source: "tools/get_x_user_posts.py"
