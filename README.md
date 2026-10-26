@@ -27,7 +27,7 @@ client configurations. The server itself is hosted; there is nothing to run.
 | Gemini CLI (extension: the server plus `GEMINI.md`) | `gemini extensions install https://github.com/tarun-khatri/weir-mcp` |
 | Any agent that reads skills | `npx skills add tarun-khatri/weir-mcp` |
 
-Each one signs you in with OAuth in the browser the first time a tool runs.
+Each one signs you in with OAuth in the browser the first time a tool runs. Step-by-step guide: https://weirapp.io/integrations/agent-skills
 
 ## Set it up by hand
 
