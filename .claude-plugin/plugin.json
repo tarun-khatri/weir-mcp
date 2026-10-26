@@ -1,0 +1,15 @@
+{
+  "name": "weir",
+  "displayName": "Weir",
+  "version": "1.1.0",
+  "description": "Public X (Twitter) and Reddit data for Claude Code: search, posts, threads, profiles, followers, Lists, Spaces and monitors, through Weir's remote MCP server. 5,000 free credits every month.",
+  "author": {
+    "name": "Weir",
+    "email": "support@weirapp.io",
+    "url": "https://weirapp.io"
+  },
+  "homepage": "https://weirapp.io/integrations/claude",
+  "repository": "https://github.com/tarun-khatri/weir-mcp",
+  "license": "MIT",
+  "keywords": ["twitter", "x", "reddit", "social-data", "social-listening", "mcp"]
+}

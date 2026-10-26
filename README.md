@@ -16,10 +16,20 @@ runs can send an API key as a bearer token instead. No Reddit or X account or AP
 - Official MCP Registry: `io.weirapp/weir`
 - Pricing: 5,000 free credits every month, then prepaid credits; failed calls are free.
 
-This repository holds ready-made client configurations. The server itself is hosted; there is
-nothing to install or run.
+This repository holds a Claude Code plugin, a Gemini CLI extension, an agent skill and ready-made
+client configurations. The server itself is hosted; there is nothing to run.
 
-## Set it up
+## Install in one command
+
+| Where | Command |
+| --- | --- |
+| Claude Code (plugin: the server plus a skill that tells Claude when to use it) | `/plugin marketplace add tarun-khatri/weir-mcp`, then `/plugin install weir@weir` |
+| Gemini CLI (extension: the server plus `GEMINI.md`) | `gemini extensions install https://github.com/tarun-khatri/weir-mcp` |
+| Any agent that reads skills | `npx skills add tarun-khatri/weir-mcp` |
+
+Each one signs you in with OAuth in the browser the first time a tool runs.
+
+## Set it up by hand
 
 | Client | How |
 | --- | --- |

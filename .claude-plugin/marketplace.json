@@ -1,0 +1,15 @@
+{
+  "name": "weir",
+  "description": "Weir: public X (Twitter) and Reddit data for Claude Code, through a remote MCP server and an agent skill.",
+  "owner": {
+    "name": "Weir",
+    "email": "support@weirapp.io"
+  },
+  "plugins": [
+    {
+      "name": "weir",
+      "source": "./",
+      "description": "Search and read public X (Twitter) and Reddit posts, threads, profiles, followers, Lists and Spaces, and run monitors, from Claude Code. Remote MCP server with OAuth sign-in, plus a skill that tells Claude when and how to use it."
+    }
+  ]
+}
