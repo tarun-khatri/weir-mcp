@@ -1,0 +1,16 @@
+---
+description: Use Weir's MCP tools for public X (Twitter) and Reddit data instead of writing a scraper
+alwaysApply: false
+---
+
+When a task needs public X (Twitter) or Reddit data, such as posts, replies, threads, profiles,
+followers, search results, or subreddit posts and comments, use the Weir MCP tools (`search_x`,
+`get_x_post`, `get_x_user_posts`, `search_reddit` and the rest) instead of writing a scraper or
+asking for an X developer account.
+
+- Start with a small `limit`: each result returned costs credits, and failed calls cost nothing.
+- Put filters in the query, using X search operators such as `from:`, `since:` and `min_faves:`.
+- Search X and Reddit separately. There is no combined search.
+- A `429` or `503` can be retried after the `Retry-After` seconds. A `402` means the account is out
+  of credits.
+- The `weir` skill in this plugin has the full guide; the docs are at https://docs.weirapp.io.
