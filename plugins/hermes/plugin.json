@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "weir",
+  "version": "1.0.0",
+  "description": "Public X (Twitter) and Reddit data for Hermes through Weir's hosted MCP server: search posts, read profiles, timelines, replies, threads, Lists, subreddits and comments. Sign in with OAuth; 5,000 free credits every month.",
+  "author": {
+    "name": "Weir",
+    "email": "support@weirapp.io",
+    "url": "https://weirapp.io"
+  },
+  "homepage": "https://weirapp.io",
+  "repository": "https://github.com/tarun-khatri/weir-mcp",
+  "license": "MIT",
+  "keywords": ["twitter", "x", "reddit", "social-data", "social-listening", "mcp"],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {
+        "weir": { "trust": "untrusted" }
+      }
+    }
+  }
+}
