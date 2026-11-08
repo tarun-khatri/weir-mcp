@@ -1,0 +1,46 @@
+{
+  "name": "weirapp-cli",
+  "version": "0.1.0",
+  "description": "Command line for Weir: search X (Twitter) and Reddit, read profiles, posts, threads and subreddits from your terminal. Public social data API with 5,000 free credits a month.",
+  "type": "module",
+  "bin": {
+    "weir": "bin/weir.js"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "twitter",
+    "x",
+    "twitter-api",
+    "x-api",
+    "reddit",
+    "reddit-api",
+    "cli",
+    "social-data",
+    "social-listening",
+    "scraper-alternative",
+    "mcp",
+    "weir"
+  ],
+  "homepage": "https://weirapp.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarun-khatri/weir-mcp.git",
+    "directory": "cli"
+  },
+  "bugs": {
+    "url": "https://github.com/tarun-khatri/weir-mcp/issues",
+    "email": "support@weirapp.io"
+  },
+  "author": "Weir <support@weirapp.io> (https://weirapp.io)",
+  "license": "MIT"
+}
