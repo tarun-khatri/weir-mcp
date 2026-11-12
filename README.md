@@ -29,6 +29,17 @@ https://docs.weirapp.io/api/mcp
 Its tools are `search_docs`, `read_doc` and `list_docs`. In Claude Code:
 `claude mcp add --transport http weir-docs https://docs.weirapp.io/api/mcp`.
 
+## Documentation
+
+The [docs folder](docs/README.md) has a page for each group of endpoints (Twitter search API,
+followers API, user timeline, threads, Lists, Spaces, Reddit search, subreddits, comments, users,
+monitors and webhooks), each with its price, parameters, a curl example and a Python example.
+
+- [Pricing](docs/pricing.md): what 1,000 X posts, profiles or Reddit comments cost, worked out.
+- [Connect an AI app](docs/connect.md): Claude, ChatGPT, Cursor, Codex and VS Code.
+- [Add Weir to Claude in one click](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Weir&connectorUrl=https%3A%2F%2Fapi.weirapp.io%2Fmcp):
+  opens Claude's "Add custom connector" dialog with Weir filled in, for you to confirm.
+
 ## Install in one command
 
 | Where | Command |
